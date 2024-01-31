@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculation Example</title>
+</head>
+<body>
+
+    <div>
+        Enter birthday 
+        <input type="date" id="bday" name="bday" max="3000-12-31">
+        <button onclick="returnAge()">Submit</button>
+        <p id="ageResult"></p>
+        <script>
+            function returnAge() {
+                var today = new Date(); // grabs today's date
+                var birthDate = new Date(document.getElementById("bday").value); // grabs the date from the input
+                var age = today.getFullYear() - birthDate.getFullYear(); // gets the year and subtracts it from the birth year
+                if (today.getMonth() < birthDate.getMonth() || (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+                document.getElementById("ageResult").textContent = "The age of this individual is " + age + " years old.";
+            }
+        </script>
+    </div>
+
+</body>
+</html>
